@@ -1,7 +1,6 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/learnSmallroutine/conponent",
     "pages/logs/logs"
   ],
   "window":{
@@ -10,6 +9,5 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle":"black"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
