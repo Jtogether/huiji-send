@@ -1,13 +1,38 @@
 {
-  "pages":[
+  "pages": [
+    "pages/login/login",
+    "pages/meetingList/meetingList",
+    "pages/mine/mine",
     "pages/index/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-field": "@vant/weapp/field/index"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#00AF34",
+    "list": [
+      {
+        "selectedIconPath": "assets/img/tableBar-icon/list-active.png",
+        "iconPath": "assets/img/tableBar-icon/list.png",
+        "pagePath": "pages/meetingList/meetingList",
+        "text": "通知"
+      },
+      {
+        "selectedIconPath": "assets/img/tableBar-icon/mine-active.png",
+        "iconPath": "assets/img/tableBar-icon/mine.png",
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  }
 }

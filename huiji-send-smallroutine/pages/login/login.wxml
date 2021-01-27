@@ -1,0 +1,30 @@
+<!--pages/login.wxml-->
+<view class="page-login">
+  <view class="page-login-block">
+    <view class="loginTitle">手机号登录</view>
+    <view class="login-input">
+      <van-cell-group>
+        <van-field
+          model:value="{{ phoneNumber }}"
+          center
+          clearable
+          maxlength="11"
+          type="number"
+          placeholder="请输入手机号"
+          border="{{ true }}"
+          use-button-slot
+        >
+          <van-button slot="button" size="small" type="primary" bindtap="clickShow">{{codeStatus? codeDate + 's':'获取验证码'}}</van-button>
+        </van-field>
+        <van-field 
+          model:value="{{ authCode }}"
+          center
+          maxlength="6"
+          type="number"
+          placeholder="请输入验证码"
+        ></van-field>
+      </van-cell-group>
+    </view>
+    <button bindtap="login" class="loginButton" disabled="{{ authCode&&ruleMobile ? false : true }}" type="primary">验证并登录</button>
+  </view>
+</view>
