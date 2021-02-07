@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/meetingList/meetingList",
+    "pages/login/login",
     "pages/mine/mine",
     "pages/index/index",
     "pages/logs/logs"
@@ -15,7 +15,8 @@
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "van-button": "@vant/weapp/button/index",
-    "van-field": "@vant/weapp/field/index"
+    "van-field": "@vant/weapp/field/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index"
   },
   "tabBar": {
     "color": "#a9b7b7",

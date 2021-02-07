@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    fakeList:[
+      {title:"1-29 | 技术是开发的基础。",createPerson:"l2"},
+      {title:"1-29 | 开发它的人的可太怪了。",createPerson:"l3"},
+    ]
   },
 
   /**

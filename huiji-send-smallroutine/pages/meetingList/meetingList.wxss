@@ -1,4 +1,69 @@
 /* pages/meetingList/meetingList.wxss */
 page{
   background-color: rgb(247, 248, 250);
+  height: 100%;
+  width: 100%;
+}
+/* 整体页面 */
+.list_body{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* 通知列表 */
+.msg_list_card{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12rpx;
+}
+.msg_list_card_body{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 30rpx;
+  box-shadow: 0rpx 12rpx 16rpx 0rpx rgba(75, 121, 171, 0.14);
+  justify-items: center;
+  border-radius: 15rpx;
+}
+/* 会议列表 */
+.meeting_list{
+  box-sizing: border-box;
+  flex: 1;
+  width: 100%;
+  margin-top: 10rpx;
+  padding: 0 90rpx;
+  overflow: scroll;
+}
+.meeting_card{
+  box-sizing: border-box;
+  height: 200rpx;
+  width: 100%;
+  padding: 30rpx;
+  background-color: white;
+  box-shadow: 0rpx 12rpx 16rpx 0rpx rgba(75, 121, 171, 0.14);
+  border-radius: 30rpx;
+  margin-bottom: 40rpx;
+}
+.meetingOn{
+  background-color: #00AF34;
+  color: white;
+}
+.meetingReady{
+  background-color: rgb(0, 123, 208);
+  color: white;
+}
+.meeting_title{
+  font-size: 40rpx;
+  margin-bottom: 10rpx;
+}
+.meeting_time{
+  font-size: 27rpx;
+}
+.meeting_address{
+  font-size: 27rpx;
+  margin-bottom: 5rpx;
 }

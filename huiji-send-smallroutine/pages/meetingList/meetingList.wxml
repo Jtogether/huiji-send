@@ -1,2 +1,24 @@
 <!--pages/meetingList/meetingList.wxml-->
-<text>pages/meetingList/meetingList.wxml</text>
+<view class="list_body">
+  <view class="msg_list_card">
+    <view class="msg_list_card_body">
+      <van-notice-bar color="#1989fa" background="#ecf9ff" text="通知：" scrollable="{{ false }}"/>
+      <van-notice-bar mode="link" wx:for="{{fakeList}}" wx:key="*this" text="{{item.title}}" scrollable="{{ false }}"  color="#1989fa" background="#ecf9ff"/>
+    </view>
+  </view>
+  <view class="meeting_list">
+    <view class="meeting_card meetingReady">
+      <view class="meeting_title">亚特兰蒂斯万岁</view>
+      <view class="meeting_address">亚特兰蒂斯社区大堂</view>
+      <view class="meeting_time">2021/1/28 18:00 ~ 2021/1/28 18:30</view>
+    </view>
+    <view class="meeting_card meetingReady">
+    </view>
+    <view class="meeting_card meetingOn">
+    </view>
+    <view class="meeting_card">
+    </view>
+    <view class="meeting_card">
+    </view>
+  </view>
+</view>
