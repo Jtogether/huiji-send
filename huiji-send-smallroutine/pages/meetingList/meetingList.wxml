@@ -3,22 +3,23 @@
   <view class="msg_list_card">
     <view class="msg_list_card_body">
       <van-notice-bar color="#1989fa" background="#ecf9ff" text="通知：" scrollable="{{ false }}"/>
-      <van-notice-bar mode="link" wx:for="{{fakeList}}" wx:key="*this" text="{{item.title}}" scrollable="{{ false }}"  color="#1989fa" background="#ecf9ff"/>
+      <van-notice-bar mode="link" wx:for="{{fakeNoticeList}}" wx:key="*this" text="{{item.title}}" scrollable="{{ false }}"  color="#1989fa" background="#ecf9ff"/>
     </view>
   </view>
   <view class="meeting_list">
-    <view class="meeting_card meetingReady">
-      <view class="meeting_title">亚特兰蒂斯万岁</view>
-      <view class="meeting_address">亚特兰蒂斯社区大堂</view>
-      <view class="meeting_time">2021/1/28 18:00 ~ 2021/1/28 18:30</view>
+    <view class="meeting_card meetingStatus{{item.status}}" wx:for="{{fakeMeetingList}}" wx:key="*this">
+      <view class="meeting_title">{{item.title}}</view>
+      <view class="meeting_address">{{item.address}}</view>
+      <view class="meeting_time">{{item.timing}}</view>
     </view>
-    <view class="meeting_card meetingReady">
+    <!-- <view class="meeting_card meetingReady">
     </view>
     <view class="meeting_card meetingOn">
     </view>
     <view class="meeting_card">
     </view>
     <view class="meeting_card">
-    </view>
+    </view> -->
+    <view class="endTitle">真的一个都没有了 ~~</view>
   </view>
 </view>

@@ -5,9 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    fakeList:[
+    fakeNoticeList:[
       {title:"1-29 | 技术是开发的基础。",createPerson:"l2"},
       {title:"1-29 | 开发它的人的可太怪了。",createPerson:"l3"},
+    ],
+    fakeMeetingList:[
+      // status: 0（代进行） 1（正在进行）2（已结束）
+      {title:"亚特兰蒂斯万岁",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:0},
+      {title:"亚特选举",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:0},
+      {title:"兰斯辩论",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:1},
+      {title:"关于部分时间的说明通告",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:2},
     ]
   },
 
