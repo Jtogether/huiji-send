@@ -1,0 +1,38 @@
+<!--pages/meetingDetail/index.wxml-->
+<view class="md_page_body">
+  <view class="md_body">
+    <view class="md_title">
+      <view class="title_head">
+        测试标题
+      </view>
+
+      <view class="title_body">
+        <view class="title_body_item">
+          <text>会议地点</text>
+          <text>亚特兰蒂斯大堂</text>
+        </view>
+        <view class="title_body_item">
+          <text>开始时间</text>
+          <text>2021/1/28 18:00</text>
+        </view>
+        <view class="title_body_item">
+          <text>结束时间</text>
+          <text>2021/1/28 18:30</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="md_btn">
+      <button class="btn_default" wx:if="{{ false }}">签到</button>
+      <button class="btn_default" wx:else>取消签到</button>
+      <button class="btn_default">请假</button>
+    </view>
+
+    <view class="md_content">
+      <view class="content_title">会议内容</view>
+      <view class="content_text">
+        略
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,53 @@
+/* pages/userinfo/mine.wxss */
+page{
+  background-color: rgb(247, 248, 250);
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+.page_body{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+.mine_header{
+  width: 100%;
+  height: 250rpx;
+  background: rgb(0,178,66);
+  border-radius: 0 0 200% 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.userinfo{
+  position: relative;
+  top: 140rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.userimg{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.username{
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  color: #aaa;
+}
+.mine_content{
+  margin-top: 200rpx;
+}
+.content_item{
+  margin-top: 5rpx;
+  height: 90rpx;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 0 30rpx;
+}

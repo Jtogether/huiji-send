@@ -1,10 +1,11 @@
 {
   "pages": [
-    "pages/meetingList/meetingList",
     "pages/login/login",
-    "pages/mine/mine",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/userinfo/mine",
+    "pages/meetingList/meetingList",
+    "pages/meetingDetail/index",
+    "pages/index/index"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -31,7 +32,7 @@
       {
         "selectedIconPath": "assets/img/tableBar-icon/mine-active.png",
         "iconPath": "assets/img/tableBar-icon/mine.png",
-        "pagePath": "pages/mine/mine",
+        "pagePath": "pages/userinfo/mine",
         "text": "我的"
       }
     ]

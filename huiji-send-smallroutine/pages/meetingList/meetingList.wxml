@@ -7,7 +7,7 @@
     </view>
   </view>
   <view class="meeting_list">
-    <view class="meeting_card meetingStatus{{item.status}}" wx:for="{{fakeMeetingList}}" wx:key="*this">
+    <view class="meeting_card meetingStatus{{item.status}}" wx:for="{{fakeMeetingList}}" wx:key="*this" bindtap="getMeetingDetails" data-id="{{item.id}}">
       <view class="meeting_title">{{item.title}}</view>
       <view class="meeting_address">{{item.address}}</view>
       <view class="meeting_time">{{item.timing}}</view>

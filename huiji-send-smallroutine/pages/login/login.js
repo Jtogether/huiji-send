@@ -105,5 +105,11 @@ Page({
         }
       },1000)
     }
+  },
+  login(){
+    wx.setStorageSync("userPhone",this.data.phoneNumber)
+    wx.switchTab({
+      url: '/pages/meetingList/meetingList'
+    })
   }
 })

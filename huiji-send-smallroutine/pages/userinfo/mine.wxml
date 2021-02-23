@@ -1,0 +1,29 @@
+<!--pages/userinfo/mine.wxml-->
+<view class="page_body"> 
+  <view class="mine_header">
+    <view class="userinfo">
+      <image class="userimg" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="username">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <view class="mine_content">
+    <view class="content_item" bindtap="tapShow">
+      <text>联系负责人</text>
+      <van-icon name="arrow" />
+    </view>
+    <view class="content_item">
+      <text>关于小程序</text>
+      <van-icon name="arrow" />
+    </view>
+  </view>
+
+  <van-action-sheet
+    show="{{ show }}"
+    actions="{{ actions }}"
+    cancel-text="取消"
+    bind:close="onClose"
+    bind:cancel="onClose"
+    bind:select="onSelect"
+   />
+</view>
+

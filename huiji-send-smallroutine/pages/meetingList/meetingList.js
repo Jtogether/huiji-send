@@ -11,11 +11,19 @@ Page({
     ],
     fakeMeetingList:[
       // status: 0（代进行） 1（正在进行）2（已结束）
-      {title:"亚特兰蒂斯万岁",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:0},
-      {title:"亚特选举",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:0},
-      {title:"兰斯辩论",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:1},
-      {title:"关于部分时间的说明通告",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:2},
+      {id:'0a1sd65f1a65sdf',title:"亚特兰蒂斯万岁",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:0},
+      {id:'1asdf13a5sd1f6',title:"亚特选举",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:0},
+      {id:'2fa1sd65f161sdf',title:"兰斯辩论",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:1},
+      {id:'3a1ds6f51a6dsf',title:"关于部分时间的说明通告",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:2},
     ]
+  },
+  getMeetingDetails(e){
+    console.log(e);
+    let data = e.currentTarget.dataset
+    console.log(data.id);
+    wx.navigateTo({
+      url: `/pages/meetingDetail/index?meetingId=${data.id}`,
+    })
   },
 
   /**

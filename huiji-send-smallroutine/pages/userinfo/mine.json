@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index"
+  },
+  "navigationBarBackgroundColor": "#00B242",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText":"我的"
+}

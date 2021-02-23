@@ -1,0 +1,67 @@
+/* pages/meetingDetail/index.wxss */
+page,body{
+  padding: 0;
+  margin: 0;
+  background: #F7F8FA;
+  height: 100%;
+}
+.md_page_body{
+  height: 100%;
+  width: 100%;
+}
+.md_body{
+  height: 100%;
+  width: 100%;
+}
+.md_title{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30rpx 35rpx;
+  background: white;
+}
+.md_btn{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20rpx 18rpx;
+  display: flex;
+  flex-direction: row;
+}
+.md_content{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30rpx 35rpx;
+  background: white;
+}
+/* 标题内容 块 */
+.title_head{
+  width: 100%;
+  font-size: 50rpx;
+  font-weight: bold;
+  padding-bottom: 10rpx;
+  border-bottom: 5rpx rgb(215,215,215) solid;
+}
+.title_body_item{
+  display: flex;
+  font-size: 30rpx;
+  margin-top:25rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 会议内容 块 */
+.content_title{
+  font-size: 29rpx;
+  color: gray;
+  padding-bottom: 10rpx;
+  border-bottom: 5rpx rgb(215,215,215) solid;
+}
+.content_text{
+  width: 100%;
+  margin-top: 30rpx;
+}
+/* 按钮内容 块 */
+.btn_default{
+  width: 45%;
+  color: white;
+  background: rgb(0,125,208);
+  font-size: 32rpx;
+}
