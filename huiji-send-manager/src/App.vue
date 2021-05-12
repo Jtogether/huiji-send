@@ -1,32 +1,70 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <!-- 顶部导航栏 -->
+    <header-bar :isLogin="isLogined" @changeLoginStatus="changeLoginStatus"/>
+    <div class="content">
+      <!-- 左边导航栏 -->
+      <div class="left_bar" v-if="isLogined">
+        <nav-bar/>
+      </div>
+      <!-- 右侧内容栏 -->
+      <div class="right_content">
+        <router-view @changeLoginStatus="changeLoginStatus"/>
+      </div>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import headerBar from '@/components/header-bar.vue'
+import navBar from '@/components/nav-bar.vue'
+export default {
+  data () {
+    return {
+      isLogined: false
+    }
+  },
+  methods: {
+    changeLoginStatus (status) {
+      // 0 登录 1登出
+      if (status === '0') {
+        this.isLogined = true
+      } else if (status === '1') {
+        this.isLogined = false
+      }
+    }
+  },
+  components: { headerBar, navBar },
+  destroyed () {
+    sessionStorage.removeItem('resToken')
+  },
+  mounted () {
+    if (sessionStorage.getItem('resToken')) {
+      this.isLogined = true
+    }
+  }
 }
+</script>
 
-#nav {
-  padding: 30px;
+<style lang="less">
+body,html{
+  padding: 0;
+  margin: 0;
+  background: rgb(250,250,250);
+  height: 100%;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#app{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .content{
+    display: flex;
+    flex: 1;
+    .right_content{
+      // background: white;
+      margin: 30px 37px 30px 15px;
+      flex: 1;
+    }
+  }
 }
 </style>

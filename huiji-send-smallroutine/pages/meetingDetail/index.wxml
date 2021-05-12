@@ -3,36 +3,54 @@
   <view class="md_body">
     <view class="md_title">
       <view class="title_head">
-        测试标题
+        {{title}}
       </view>
 
       <view class="title_body">
         <view class="title_body_item">
           <text>会议地点</text>
-          <text>亚特兰蒂斯大堂</text>
+          <text>{{address}}</text>
         </view>
         <view class="title_body_item">
           <text>开始时间</text>
-          <text>2021/1/28 18:00</text>
+          <text>{{startTime}}</text>
         </view>
         <view class="title_body_item">
           <text>结束时间</text>
-          <text>2021/1/28 18:30</text>
+          <text>{{endTime}}</text>
         </view>
       </view>
     </view>
 
-    <view class="md_btn">
-      <button class="btn_default" wx:if="{{ false }}">签到</button>
-      <button class="btn_default" wx:else>取消签到</button>
-      <button class="btn_default">请假</button>
+    <view class="md_btn" wx:if="{{status === 0 || status === 1}}">
+      <button class="btn_default" wx:if="{{ curUserStatus === 0 }}" bindtap="signIn" data-action="1">签到</button>
+      <button class="btn_default" wx:if="{{ curUserStatus === 1 }}" bindtap="signIn" data-action="0">取消签到</button>
+      <button class="btn_default" disabled="{{curUserStatus === 2}}" bindtap="openDialog">{{ curUserStatus === 2 ? '已请假' : '请假'}}</button>
     </view>
 
     <view class="md_content">
       <view class="content_title">会议内容</view>
       <view class="content_text">
-        略
+        {{content}}
       </view>
     </view>
   </view>
+
+  <van-dialog
+    use-slot
+    title="请假"
+    show="{{ show }}"
+    show-cancel-button
+    bind:close="onClose"
+    bind:cancel="onClose"
+    bind:confirm="signIn"
+    data-action="2"
+    close-on-click-overlay="{{true}}"
+  >
+    <van-field
+      model:value="{{ reason }}"
+      placeholder="填写请假理由"
+      border="{{ true }}"
+    />
+  </van-dialog>
 </view>

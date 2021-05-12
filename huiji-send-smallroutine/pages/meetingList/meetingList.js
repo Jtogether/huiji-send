@@ -1,22 +1,22 @@
 // pages/meetingList/meetingList.js
+import apiList from '../../api/index'
+import service from '../../utils/request'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    fakeNoticeList:[
-      {title:"1-29 | 技术是开发的基础。",createPerson:"l2"},
-      {title:"1-29 | 开发它的人的可太怪了。",createPerson:"l3"},
-    ],
-    fakeMeetingList:[
+    noticeList:[],
+    meetingList:[
       // status: 0（代进行） 1（正在进行）2（已结束）
-      {id:'0a1sd65f1a65sdf',title:"亚特兰蒂斯万岁",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:0},
-      {id:'1asdf13a5sd1f6',title:"亚特选举",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:0},
-      {id:'2fa1sd65f161sdf',title:"兰斯辩论",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:1},
-      {id:'3a1ds6f51a6dsf',title:"关于部分时间的说明通告",address:"亚特兰蒂斯社区大堂",timing:"2021/1/28 18:00 ~ 2021/1/28 18:30",status:2},
-    ]
+    ],
+    isShow: false,
+    noticeTime: '2021/1/28 18:00',
+    noticeTitle: '亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举',
+    noticeContent: '亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举亚特选举'
   },
+  // 打开会议详情
   getMeetingDetails(e){
     console.log(e);
     let data = e.currentTarget.dataset
@@ -25,12 +25,115 @@ Page({
       url: `/pages/meetingDetail/index?meetingId=${data.id}`,
     })
   },
-
+  // 打开通知详情
+  toNoticeDetail(e){
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+    });
+    console.log('toNoticeDetail => ',e);
+    const params = {
+      id: e.target.dataset.noticeid
+    }
+    console.log(params);
+    service.get(apiList.noticeDetail,params).then(res => {
+      if(res.data.code === 0){
+        let obj = res.data.result
+        obj.time = obj.time.split('.')[0].replace('T',' ')
+        this.setData({
+          noticeTime: obj.time,
+          noticeTitle: obj.title,
+          noticeContent: obj.content
+        })
+        wx.hideLoading();
+        this.setData({
+          isShow: true
+        })
+      }else{
+        wx.hideLoading();
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          image: '',
+          duration: 1500,
+          mask: false,
+        });
+      }
+      console.log(res);
+    }).catch(err => {
+      wx.hideLoading();
+      console.log(err);
+    })
+  },
+  // 关闭弹窗
+  onClose(){
+    this.setData({
+      isShow: false
+    })
+  },
+  // 初始化通知列表
+  initNoticeList(){
+    const params = {
+      pageSize: 3,
+      pageNum: 1
+    }
+    service.get(apiList.noticeList,params).then(res => {
+      if(res.data.total > 0){
+        let arr = res.data.pageData
+        arr.forEach(item => {
+          const timeArr = item.time.split('T')[0].split('-')
+          item.fullTitle = `${timeArr[1]}-${timeArr[2]} | ${item.title}`
+        })
+        this.setData({
+          noticeList: arr
+        })
+      }
+    }).catch(err => {
+      console.log(err);
+    })
+  },
+  // 初始化会议列表
+  initMeetingList(){
+    const params = {
+      phone: wx.getStorageSync('userPhone')
+    }
+    service.simplePost(apiList.meetingList,params).then(res => {
+      console.log(res);
+      if(res.data.code === 0){
+        let arr = res.data.result
+        arr.forEach(item => {
+          item.startTime = item.startTime.split('.')[0].replace('T',' ')
+          item.endTime = item.endTime.split('.')[0].replace('T',' ')
+        })
+        this.setData({
+          meetingList: arr
+        })
+        wx.hideLoading();
+      }else{
+        wx.hideLoading();
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          image: '',
+          duration: 1500,
+          mask: false,
+        });
+      }
+    }).catch(err => {
+      wx.hideLoading();
+      console.log(err);
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.showLoading({
+      title: '火速加载中~',
+      mask: true,
+    });
+    this.initNoticeList()
+    this.initMeetingList()
   },
 
   /**

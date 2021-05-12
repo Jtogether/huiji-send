@@ -1,3 +1,5 @@
+import apiList from '../../api/index'
+import service from '../../utils/request'
 // pages/login.js
 Page({
 
@@ -107,9 +109,49 @@ Page({
     }
   },
   login(){
-    wx.setStorageSync("userPhone",this.data.phoneNumber)
-    wx.switchTab({
-      url: '/pages/meetingList/meetingList'
+    const regex = /^1[3456789]\d{9}$/
+    if(!regex.test(this.data.phoneNumber)){
+      let title = '手机号码有误!'
+      if(this.data.phoneNumber === '') title = '请输入手机号码!'
+      wx.showToast({
+        title,
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    const params = {
+      phone: this.data.phoneNumber,
+      code: '123456'
+    }
+    console.log(params);
+    service.simplePost(apiList.loginByPhone,params).then(res => {
+      if(res.data.code === 0){
+        wx.showToast({
+          title: res.data.message,
+          icon: 'success',
+          image: '',
+          duration: 1500,
+          mask: false,
+        });
+        wx.setStorageSync("userPhone",this.data.phoneNumber)
+        setTimeout(() => {
+          wx.switchTab({
+            url: '/pages/meetingList/meetingList'
+          })
+        },1000)
+      }else{
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none',
+          image: '',
+          duration: 1500,
+          mask: false,
+        });
+      }
+      console.log(res);
+    }).catch(err => {
+      console.log(err);
     })
   }
 })

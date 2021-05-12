@@ -2,7 +2,7 @@
 <view class="page_body"> 
   <view class="mine_header">
     <view class="userinfo">
-      <image class="userimg" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <image class="userimg" src="{{userInfo.avatarUrl}}" mode="cover" bindtap="getUserProfile"></image>
       <view class="username">{{userInfo.nickName}}</view>
     </view>
   </view>

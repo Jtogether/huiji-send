@@ -3,14 +3,26 @@
   <view class="msg_list_card">
     <view class="msg_list_card_body">
       <van-notice-bar color="#1989fa" background="#ecf9ff" text="通知：" scrollable="{{ false }}"/>
-      <van-notice-bar mode="link" wx:for="{{fakeNoticeList}}" wx:key="*this" text="{{item.title}}" scrollable="{{ false }}"  color="#1989fa" background="#ecf9ff"/>
+      <van-notice-bar mode="link" 
+        wx:for="{{noticeList}}" 
+        wx:key="*this" 
+        text="{{item.fullTitle}}" 
+        scrollable="{{ false }}"  
+        color="#1989fa" 
+        background="#ecf9ff" 
+        bindtap="toNoticeDetail"
+        data-noticeId="{{item.id}}"/>
     </view>
   </view>
   <view class="meeting_list">
-    <view class="meeting_card meetingStatus{{item.status}}" wx:for="{{fakeMeetingList}}" wx:key="*this" bindtap="getMeetingDetails" data-id="{{item.id}}">
+    <view class="meeting_card meetingStatus{{item.status}}"
+       wx:for="{{meetingList}}" 
+       wx:key="*this" 
+       bindtap="getMeetingDetails" 
+       data-id="{{item.meetingId}}">
       <view class="meeting_title">{{item.title}}</view>
       <view class="meeting_address">{{item.address}}</view>
-      <view class="meeting_time">{{item.timing}}</view>
+      <view class="meeting_time">{{item.startTime}} ~ {{item.endTime}}</view>
     </view>
     <!-- <view class="meeting_card meetingReady">
     </view>
@@ -22,4 +34,24 @@
     </view> -->
     <view class="endTitle">真的一个都没有了 ~~</view>
   </view>
+  <van-popup
+    show="{{ isShow }}"
+    round
+    position="bottom"
+    closeable
+    close-icon="close"
+    custom-style="height: 80%"
+    bind:close="onClose">
+    <view class="notice">
+      <view class="notice_time">
+        {{noticeTime}}
+      </view>
+      <view class="notice_title">
+        {{noticeTitle}}
+      </view>
+      <view class="notice_content">
+        {{noticeContent}}
+      </view>
+    </view>
+  </van-popup>
 </view>

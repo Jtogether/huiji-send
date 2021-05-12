@@ -73,3 +73,20 @@ page{
   font-size: 27rpx;
   margin-bottom: 40rpx;
 }
+/* 弹出层-通知 */
+.notice_time{
+  text-align: center;
+  margin-top: 35rpx;
+}
+.notice_title{
+  padding: 17rpx 0rpx;
+  font-family: PingFangSC-Medium, sans-serif;
+  font-weight: bold;
+  font-size: 40rpx;
+  margin: 0 52rpx;
+  border-bottom: 1px gray solid;
+}
+.notice_content{
+  padding: 17rpx 52rpx;
+  font-family: PingFangSC-Medium, sans-serif;
+}

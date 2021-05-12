@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "van-popup": "@vant/weapp/popup/index"
   },
   "navigationBarBackgroundColor": "#F7F8FA",
   "navigationBarTitleText":"会即send"

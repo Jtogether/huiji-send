@@ -1,4 +1,5 @@
 
+/* eslint-disable */
 //获取当前链接的QueryString值
 String.prototype.queryString = function (name, is_hashtag) {
     var url = this.replace(new RegExp('(.*)\\?'), '?');
